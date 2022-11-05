@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+Vai:regular);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans Vai';
+}
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10% 0 0 0;
+    width: 100%;
+    height: 100vh;
+    background: red;
+}
+h2{
+    color: #fff;
+    text-shadow: 2px 3px #000;   
+    height: 35px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.373);
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+button {
+    position: absolute;
+    bottom: 20%;
+}
+.text-space {
+    font-weight: 100;
+    color: #fff;
+    font-size: 18px;
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+    translate: -50%;
+    z-index: 3;
+    text-shadow: 2px 3px #000;       
+    animation: fade-in 2s infinite;
+}
+@keyframes fade-in {
+    0%,100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .6;
+    }
+}
