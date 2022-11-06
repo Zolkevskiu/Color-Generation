@@ -71,7 +71,23 @@ i {
   animation: fade-in 2s infinite;
   cursor: pointer;
 }
-
+.title-wrap {
+  position: relative;
+}
+.hover-text {
+  color: #fff;
+  background: #000;
+  border-radius: 5px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  height: 30px;
+  width: 90px;
+  position: absolute;
+  top: -40px;
+  left: -175px;
+}
 @keyframes fade-in {
   0%, 100% {
     opacity: 1;
