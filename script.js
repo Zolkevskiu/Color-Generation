@@ -1,5 +1,6 @@
-const button = document.querySelectorAll("button")
+const buttonLock = document.querySelectorAll("button")
 const cols = document.querySelectorAll(".col")
+const fontLock = document.querySelectorAll(".font-lock")
 
 function generationColor() {
     let text = ""
@@ -10,11 +11,24 @@ function generationColor() {
 
     return '#' + text
 }
+
+fontLock.forEach(element => {
+    element.addEventListener("click", ()=> {
+        element.classList.toggle("fa-lock-open")
+        element.classList.toggle("fa-lock")
+    })
+})
+
 function colorCols() {
     cols.forEach(col => {
         const textColor = col.querySelector("h2")
+        let buttonCol = col.querySelector('i').classList.contains('fa-lock')
         const ColorGenerate = generationColor()
 
+        if(buttonCol) {
+            return
+        }
+        
         textColor.textContent = ColorGenerate
         col.style.background = ColorGenerate
     })
@@ -22,15 +36,10 @@ function colorCols() {
 
 
 document.addEventListener("keydown", (event) => {
+    // event.preventDefault();
     if (event.code.toLowerCase() == "space") {
         colorCols()
-    }
-})
-
-button.forEach(e => {
-    e.addEventListener("click", () => {
-
-    })
+    } 
 })
 cols.forEach(col => {
     const textColor = col.querySelector("h2")
@@ -39,5 +48,8 @@ cols.forEach(col => {
         text = textColor.textContent
         navigator.clipboard.writeText(text)
     })
+})
+document.querySelector(".text-space").addEventListener("click", ()=> {
+    colorCols()
 })
 colorCols()
