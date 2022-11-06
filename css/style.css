@@ -71,6 +71,9 @@ i {
   animation: fade-in 2s infinite;
   cursor: pointer;
 }
+.text-space::selection {
+  background: none;
+}
 .title-wrap {
   position: relative;
 }
