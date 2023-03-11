@@ -16,9 +16,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   padding: 10% 0 0 0;
   width: 100%;
   height: 100vh;
+  background: red;
 }
 
 h2 {
@@ -58,9 +60,6 @@ i {
 }
 
 .text-space {
-  font-weight: 100;
-  color: #fff;
-  font-size: 18px;
   position: absolute;
   left: 50%;
   bottom: 8%;
@@ -70,12 +69,21 @@ i {
   animation: fade-in 2s infinite;
   cursor: pointer;
 }
+.text-space::before {
+  content: "Press to Space";
+  font-size: 18px;
+  font-weight: 100;
+  color: #FFF;
+}
+
 .text-space::selection {
   background: none;
 }
+
 .title-wrap {
   position: relative;
 }
+
 .hover-text {
   color: #fff;
   background: #000;
@@ -90,11 +98,44 @@ i {
   top: -40px;
   left: -175px;
 }
+
 @keyframes fade-in {
   0%, 100% {
     opacity: 1;
   }
   50% {
     opacity: 0.6;
+  }
+}
+@media (max-width: 850px) {
+  .hover-text {
+    opacity: 0;
+    overflow: hidden;
+  }
+  body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .text-space {
+    padding-top: 0;
+    height: 20px;
+    position: fixed;
+    bottom: 3%;
+  }
+  .text-space::before {
+    content: "Press to change";
+    font-size: 18px;
+    font-weight: 100;
+    color: #FFF;
+    position: relative;
+    top: -10px;
+  }
+  .col {
+    height: 40vh;
+  }
+  .col:nth-child(5) {
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
 }
